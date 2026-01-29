@@ -238,16 +238,6 @@ function clearForm() {
     showToast('تمامی فیلدهای فرم و مدارک پاک شدند', 'success');
 }
 
-// تابع چاپ فرم
-function printForm() {
-    if (!validateForm()) {
-        showToast('لطفاً فیلدهای الزامی را پر کنید', 'error');
-        return;
-    }
-    
-    window.print();
-}
-
 // تابع ایجاد HTML فقط خواندنی با مدارک (بهینه شده)
 function createReadOnlyHTML(formData, hasProfilePhoto, profilePhotoBase64, hasPassport, passportBase64, hasIdCard, idCardBase64) {
     // ایجاد کد HTML
@@ -914,7 +904,6 @@ document.addEventListener('DOMContentLoaded', function() {
     
     document.getElementById('photo-upload').addEventListener('change', loadPhoto);
     document.getElementById('clearButton').addEventListener('click', clearForm);
-    document.getElementById('printButton').addEventListener('click', printForm);
     document.getElementById('htmlButton').addEventListener('click', downloadHTML);
     
     // رویدادهای آپلود پاسپورت
@@ -990,17 +979,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const consulateInput = document.getElementById('iranConsulate');
     if (consulateInput) {
         consulateInput.value = 'سرکنسولگری جمهوری اسلامی ایران - مزارشریف';
-    }
-    
-    // اضافه کردن تاریخ به کد رهگیری به صورت خودکار
-    const trackingInput = document.getElementById('trackingCode');
-    if (trackingInput && !trackingInput.value) {
-        const date = new Date();
-        const year = date.getFullYear().toString().slice(2);
-        const month = (date.getMonth() + 1).toString().padStart(2, '0');
-        const day = date.getDate().toString().padStart(2, '0');
-        const randomChars = Math.random().toString(36).substring(2, 6).toUpperCase();
-        trackingInput.value = 'P' + year + month + day + randomChars;
     }
     
     // رویداد autoExpand برای تمام فیلدها
