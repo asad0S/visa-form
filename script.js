@@ -656,14 +656,14 @@ function createReadOnlyHTML(formData, hasProfilePhoto, profilePhotoBase64, hasPa
                 <table class="info-table">
                     <!-- اسم -->
                     <tr>
-                        <td class="label-col">اسم فارسی</td>
+                        <td class="label-col">اسم فارسی و انگلیسی</td>
                         <td class="value-col">${escapeHTML(formData.nameFa || 'ثبت نشده')}</td>
                         <td class="value-col-english">${escapeHTML(formData.nameEn || 'Not entered')}</td>
                     </tr>
                     
                     <!-- تخلص -->
                     <tr>
-                        <td class="label-col">تخلص فارسی</td>
+                        <td class="label-col">تخلص فارسی و انگلیسی</td>
                         <td class="value-col">${escapeHTML(formData.familyFa || 'ثبت نشده')}</td>
                         <td class="value-col-english">${escapeHTML(formData.familyEn || 'Not entered')}</td>
                     </tr>
